@@ -13,55 +13,37 @@ List of features
 - [x] Variables
 
 ```html
-## name: <star>
+## name: {{star}}
 ```
 
 
 - [x] Loops
 
 ```html
-<* planet in planets>
+{{#planets}}
+* {{planet}}
+{{/planets}}
 ```
 
 - [ ] Attributes
 - [x] Conditionals
 
 ```html
-<if star = 'Sun':
+{{#is start 'Sun'}}
     Our solar system
 
     Number of planets: 8
->
-<else if star = 'Kepler-32':
-    Cygnus solar system
+{{else}}
+    {{#is star 'Kepler-32'}}
+        Cygnus solar system
 
-    Number of planets: 3
->
-<else: Some random solar system>
-<endif>
+        Number of planets: 3
+    {{else}}
+        Some random solar system
+    {{/is}}
+{{/is}}
 ```
-
-- [x] Nested variables
-
-```html
-## name: <star.name>
-
-<* planet.name in planets>
-```
-
 - [ ] Includes
 - [ ] Attributes
-- [x] Comments
-
-```js
-// This is a single line comment
-
-/* This is a
-   multi
-   line
-   comment
-*/
-```
-
 - [ ] Escape code
 - [ ] Syntax errors

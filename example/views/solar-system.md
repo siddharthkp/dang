@@ -1,27 +1,23 @@
 <link rel='stylesheet' href='github-markdown.css'>
 
-## name: <star>
+## name: {{star}}
 
 #### Planets
-<* planet.name in planets>
+{{#each planets}}
+* {{name}}
+{{/each}}
 
-<if star = 'Sun':
+{{#is star 'Sun'}}
     Our solar system
 
     Number of planets: 8
->
-<else if star = 'Kepler-32':
-    Cygnus solar system
+{{else}}
+    {{#is star 'Kepler-32'}}
+        Cygnus solar system
 
-    Number of planets: 3
->
-<else: Some random solar systems>
-<endif>
+        Number of planets: 3
+    {{else}}
+        Some random solar systems>
+    {{/is}}
+{{/is}}
 
-// This is a single line comment
-
-/* This is a
-   multi
-   line
-   comment
-*/

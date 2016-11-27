@@ -1,9 +1,10 @@
 const marked = require('marked');
-const transforms = require('./transforms');
+const handlebars = require('handlebars');
+const helpers = require('handlebars-helpers')();
 
 const api = (content, options) => {
-    for (let transform of transforms) content = transform(content, options);
-    return marked(content);
+    handlebars.registerHelper(helpers.is);
+    return marked(handlebars.compile(content)(options));
 };
 
 module.exports = api;
